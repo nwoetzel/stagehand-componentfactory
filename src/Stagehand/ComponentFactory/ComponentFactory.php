@@ -89,7 +89,7 @@ class ComponentFactory implements IComponentFactory
     public function clearComponents()
     {
         $containerClass = new \ReflectionObject($this->container);
-        foreach (array('services', 'scopedServices', 'loading') as $clearingPropertyName) {
+        foreach (array('services', 'loading') as $clearingPropertyName) {
             $clearingProperty = $containerClass->getProperty($clearingPropertyName);
             $clearingProperty->setAccessible(true);
             $clearingProperty->setValue($this->container, array());
